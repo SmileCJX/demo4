@@ -1,4 +1,7 @@
-import {Component, OnInit, ViewChild, AfterViewInit, AfterViewChecked} from '@angular/core';
+import {
+  Component, OnInit, ViewChild, AfterViewInit, AfterViewChecked, AfterContentInit,
+  AfterContentChecked
+} from '@angular/core';
 import {ChildComponent} from "./child/child.component";
 
 @Component({
@@ -6,17 +9,26 @@ import {ChildComponent} from "./child/child.component";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit,AfterViewChecked{
+export class AppComponent implements OnInit, AfterViewInit,AfterViewChecked, AfterContentInit, AfterContentChecked{
+
+  ngAfterContentInit(): void {
+    console.log("父组件投影内容初始化完毕");
+    this.message = 'hello caijunxiang';
+  }
+
+  ngAfterContentChecked(): void {
+    console.log("父组件投影内容变更检测完毕");
+  }
 
   message: string;
 
-  divContent = "<div>慕课网</div>";
+  divContent = "<br><div>慕课网</div>";
 
   ngAfterViewInit(): void {
-    console.log('父组件的视图初始化完毕');
-    setTimeout(() => {
-      this.message = "hello";
-    },0);
+    // console.log('父组件内容视图初始化完毕');
+    // setTimeout(() => {
+    //   this.message = "hello";
+    // },0);
   }
 
   ngAfterViewChecked(): void {
