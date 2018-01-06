@@ -10,6 +10,8 @@ export class AppComponent implements OnInit, AfterViewInit,AfterViewChecked{
 
   message: string;
 
+  divContent = "<div>慕课网</div>";
+
   ngAfterViewInit(): void {
     console.log('父组件的视图初始化完毕');
     setTimeout(() => {

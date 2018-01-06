@@ -2,3 +2,14 @@
 <app-child #child2></app-child>
 <button (click)="child2.greeting('jerry')">调用child2的greeting方法</button><br>
 {{message}}
+
+<div class="wrapper">
+  <h2>我是父组件</h2>
+  <div>这个div定义在父组件中</div>
+  <app-child2>
+    <div class="header">页头，这个div是父组件投影到子组件中的，title是{{title}}</div>
+    <div class="foot">页脚，这个div是父组件投影到子组件中的</div>
+  </app-child2>
+</div>
+
+<div [innerHTML]="divContent"></div>
